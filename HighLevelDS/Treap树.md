@@ -64,9 +64,9 @@ void Del(int &u,int x){
         if(t[u].ls==0&&t[u].rs==0){u=0;return;}//变换到叶子节点，直接删除
         if(t[u].ls==0||t[u].rs==0){u=t[u].ls+t[u].rs;return;}//如果该子树根节点只有一个子节点，直接让其顶替其位置，以达到删除的效果
         if(t[t[u].ls].pri<t[t[u].rs].pri){//该条件顺便维护一下
-            rotate(u,0);Del(t[u].rs,x);return;//左旋
+            rotate(u,0);Del(t[u].rs,x);return;//右旋
         }else{
-            rotate(u,1);Del(t[u].ls,x);return;//右旋
+            rotate(u,1);Del(t[u].ls,x);return;//左旋
         }
     }
     if(t[u].key>=x) Del(t[u].ls,x);
